@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>A Collection of Artists and their Songs</title>
+</head>
+<body>
+    <h1>A Collection of Artists and their Songs</h1>
+
+    <p>Add Artist here</p>
+    <input type="text" id="artistIn" placeholder="Artist">
+    <input type="text" id="songIn" placeholder="Song">
+    <input type="text" id="yearIn" placeholder="Year">
+    <br>
+    <br>
+    <button id="submitBtn">Submit</button>
+    <br>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Artist</th>
+                <th scope="col">Song</th>
+                <th scope="col">Year</th>
+            </tr>
+        </thead>
+        <tbody id="displayArtistTable"></tbody>
+            <!-- append artist table here in clent.js -->
+        </tbody>
+    </table>
+
+
+</body>
+</html>
