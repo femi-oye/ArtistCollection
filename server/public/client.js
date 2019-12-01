@@ -21,13 +21,16 @@ function getArtistDetails() {
         method: 'POST',
         url: '/artists',
         data: artistsIn
-    }).then(function(respose) {
+    }).then(function(response) {
         console.log(response);
     }).catch(function(error) {
         console.log(error);
     });
 
     displayArtists();
+    $('#artistIn').val("");
+    $('#songIn').val("");
+    $('#yearIn').val("");
 }
 
 function displayArtists() {
