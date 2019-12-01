@@ -1,7 +1,15 @@
 $(document).ready(readyNow);
 
+// function to grab user input
+function getArtistDetails() {
+    if ($('#artistIn').val() == "" || $('#songIn').val() == "" || $('#yearIn').val() == ""){
+        alert("Fields cannot be empty");
+    }
+} // end getArtistDetails
+
 function readyNow() {
     console.log('JQ loaded');
+    $ ('#submitBtn').on('click', getArtistDetails);
 
     $.ajax({
         method: 'GET',
@@ -20,5 +28,6 @@ function readyNow() {
             </tr>
             `);
         }
+
     });
 }
