@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('server/public'));
 
-app.get('/artists', (req, res) => {
+app.get('/artist-songs', (req, res) => {
     res.send(artists);
     console.log(artists);
 });
 
-app.post('/artists', (req, res) => {
+app.post('/artist-songs', (req, res) => {
     console.log(req.body);
     artists.push(req.body);
     res.sendStatus(201);

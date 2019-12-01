@@ -8,6 +8,13 @@ function readyNow() {
     displayArtists();
 }
 
+// function to check that fields are not blank
+function checkUserFields() {
+    if ($('#artistIn').val() == "" || $('#songIn').val() == "" || $('#yearIn').val() == ""){
+        alert("Fields cannot be empty");
+    }
+}
+
 // function to grab user input
 function getArtistDetails() {
     const artistsIn = {
@@ -15,11 +22,12 @@ function getArtistDetails() {
         song: $('#songIn').val(),
         year: $('#yearIn').val()
     };
+    checkUserFields();
     console.log(`Items in is ${JSON.stringify(artistsIn)}`);
     
     $.ajax({
         method: 'POST',
-        url: '/artists',
+        url: '/artist-songs',
         data: artistsIn
     }).then(function(response) {
         console.log(response);
@@ -37,7 +45,7 @@ function displayArtists() {
 
     $.ajax({
         method: 'GET',
-        url: '/artists'
+        url: '/artist-songs'
     }).then(function(response) {
         console.log(response);
 
