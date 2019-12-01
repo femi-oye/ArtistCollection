@@ -1,15 +1,36 @@
 $(document).ready(readyNow);
 
-// function to grab user input
-function getArtistDetails() {
-    if ($('#artistIn').val() == "" || $('#songIn').val() == "" || $('#yearIn').val() == ""){
-        alert("Fields cannot be empty");
-    }
-} // end getArtistDetails
-
 function readyNow() {
     console.log('JQ loaded');
+
     $ ('#submitBtn').on('click', getArtistDetails);
+
+    displayArtists();
+}
+
+// function to grab user input
+function getArtistDetails() {
+    const artistsIn = {
+        name: $('#artistIn').val(),
+        song: $('#songIn').val(),
+        year: $('#yearIn').val()
+    };
+    console.log(`Items in is ${JSON.stringify(artistsIn)}`);
+    
+    $.ajax({
+        method: 'POST',
+        url: '/artists',
+        data: artistsIn
+    }).then(function(respose) {
+        console.log(response);
+    }).catch(function(error) {
+        console.log(error);
+    });
+
+    displayArtists();
+}
+
+function displayArtists() {
 
     $.ajax({
         method: 'GET',
@@ -19,6 +40,7 @@ function readyNow() {
 
         let artists = response;
 
+        $('#displayArtistTable').empty();
         for (let artist of artists) {
             $('#displayArtistTable').append(`
             <tr>
