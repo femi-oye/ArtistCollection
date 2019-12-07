@@ -9,6 +9,7 @@ const artists = [{name: 'John Doe', song: 'Everything', year: '2001'},
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+
 app.use(express.static('server/public'));
 
 app.get('/artist-songs', (req, res) => {

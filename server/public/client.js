@@ -9,20 +9,24 @@ function readyNow() {
 }
 
 // function to check that fields are not blank
-function checkUserFields() {
+function getArtistDetails() {
     if ($('#artistIn').val() == "" || $('#songIn').val() == "" || $('#yearIn').val() == ""){
         alert("Fields cannot be empty");
+    }
+    else{
+        addArtistDetails($('#artistIn').val(), $('#songIn').val(), $('#yearIn').val());
+        ($('#artistIn').val("")), $('#songIn').val(""), $('#yearIn').val("");
     }
 }
 
 // function to grab user input
-function getArtistDetails() {
+function addArtistDetails() {
     const artistsIn = {
         name: $('#artistIn').val(),
         song: $('#songIn').val(),
         year: $('#yearIn').val()
     };
-    checkUserFields();
+//    checkUserFields();
     console.log(`Items in is ${JSON.stringify(artistsIn)}`);
     
     $.ajax({
